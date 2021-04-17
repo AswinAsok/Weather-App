@@ -54,20 +54,6 @@ const Display = ({ search, weather, location, error }) => {
           return (
             <div>
               <Card className={classes.root}>
-                <CardHeader
-                  avatar={
-                    <Avatar aria-label="recipe" className={classes.avatar}>
-                      R
-                    </Avatar>
-                  }
-                  action={
-                    <IconButton aria-label="settings">
-                      <MoreVertIcon />
-                    </IconButton>
-                  }
-                  title="Shrimp and Chorizo Paella"
-                  subheader="September 14, 2016"
-                />
                 <CardMedia
                   className={classes.media}
                   image="/static/images/cards/paella.jpg"
@@ -79,9 +65,7 @@ const Display = ({ search, weather, location, error }) => {
                     color="textSecondary"
                     component="p"
                   >
-                    This impressive paella is a perfect party dish and a fun
-                    meal to cook together with your guests. Add 1 cup of frozen
-                    peas along with the mussels, if you like.
+                    {weather.weather[0].main}
                   </Typography>
                 </CardContent>
                 <CardActions disableSpacing>
