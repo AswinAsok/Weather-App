@@ -14,7 +14,11 @@ const useStyles = makeStyles((theme) => ({
     color: "#fffff",
   },
   text: {
-    marginLeft: "5px"
+    marginLeft: "5px",
+  },
+  logo: {
+    margin: "0px",
+    fontSize: "30px",
   },
 }));
 
@@ -22,21 +26,14 @@ const Header = () => {
   const classes = useStyles();
   return (
     <div className="header-container">
-      <Grid
-        item
-        xs={12}
-        container
-        direction="column"
-        justify="center"
-        alignItems="center"
-      >
-        <AppBar position="static" className={classes.root}>
-          <Toolbar>
-            <CloudTwoToneIcon style={{ fontSize: 30 }} />
-            <Typography className={classes.text} variant="h5">Weather App</Typography>
-          </Toolbar>
-        </AppBar>
-      </Grid>
+      <AppBar position="static" className={classes.root}>
+        <Toolbar>
+          <CloudTwoToneIcon className={classes.logo} />
+          <Typography className={classes.text} variant="h5">
+            Weather App
+          </Typography>
+        </Toolbar>
+      </AppBar>
     </div>
   );
 };
