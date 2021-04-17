@@ -2,7 +2,7 @@ import Header from "../Header/Header";
 import Display from "../Display/Display";
 import "./App.css";
 import Search from "../Search/Search";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Divider from "@material-ui/core/Divider";
 
 function App() {
@@ -12,16 +12,19 @@ function App() {
   const [error, setError] = useState("");
 
   const fetchdetails = () => {
-    fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=e872642d325a2c265cecf7fac7986a27`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setWeather(data);
-        if (data.message) {
-          setError(data.message);
-        }
-      });
+    if (search) {
+      fetch(
+        `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=e872642d325a2c265cecf7fac7986a27`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          setWeather(data);
+          console.log("Data Fetched")
+          if (data.message) {
+            setError(data.message);
+          }
+        });
+    }
   };
 
   return (
@@ -36,12 +39,7 @@ function App() {
       />
       <br></br>
       <Divider />
-      <Display
-        location={location}
-        search={search}
-        setSearch={setSearch}
-        weather={weather}
-      />
+      <Display weather={weather} location={location}/>
     </div>
   );
 }

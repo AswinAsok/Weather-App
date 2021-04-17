@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 
-const Display = ({ location, search, setSearch, weather }) => {
+const Display = ({weather, location}) => {
   
 
   return (
     <div>
       {console.log(weather)}
+      {console.log(location)}
     </div>
   );
 };
