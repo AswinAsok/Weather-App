@@ -14,7 +14,7 @@ function App() {
     <div className="App">
       <Header />
       <Search location={location} setLocation={setLocation} search={search} setSearch={setSearch}/>
-      <Display location={location} search={search}/>
+      <Display location={location} search={search} setSearch={setSearch}/>
     </div>
   );
 }

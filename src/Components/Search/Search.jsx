@@ -18,7 +18,7 @@ const Search = ({location, setLocation, search, setSearch}) => {
             shrink: true,
           }}
           value={location}
-          onChange = {(event) => setLocation(event.target.value)}
+          onChange = {(event) => {setLocation(event.target.value); setSearch(false)}}
           variant="outlined"
         />
 
