@@ -9,7 +9,7 @@ const Display = ({ location, search, setSearch }) => {
 
   const fetchweather = () => {
 
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=e872642d325a2c265cecf7fac7986a27`)
+    fetch(`http://api.github.com/users/AswinAsok`)
       .then((res) => res.json())
       .then((data) => {
         setWeather(data);
@@ -23,7 +23,7 @@ const Display = ({ location, search, setSearch }) => {
   return (
     <div className="">
       {(() => {
-        if (search) {
+        if (search && !checkdata) {
           return <div>
               {fetchweather()}
               {console.log(weather)}
