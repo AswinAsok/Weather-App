@@ -4,7 +4,7 @@ import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import './Search.css'
 
-const Search = () => {
+const Search = ({location, setLocation, search, setSearch}) => {
   return (
     <div className="Search-container">
       <Grid spacing={3}>
@@ -17,10 +17,12 @@ const Search = () => {
           InputLabelProps={{
             shrink: true,
           }}
+          value={location}
+          onChange = {(event) => setLocation(event.target.value)}
           variant="outlined"
         />
 
-        <Button variant="outlined" color="primary" style={{ marginTop: "10%", marginLeft: "5px", padding:"13px"}} size="large">
+        <Button variant="outlined" color="primary" onClick={() => setSearch(true)} style={{ marginTop: "10%", marginLeft: "5px", padding:"13px"}} size="large">
           Search
         </Button>
       </Grid>
