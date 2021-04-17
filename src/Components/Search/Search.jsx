@@ -4,7 +4,7 @@ import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import './Search.css'
 
-const Search = ({location, setLocation, search, setSearch}) => {
+const Search = ({location, setLocation, search, setSearch, fetchdetails}) => {
   return (
     <div className="Search-container">
       <Grid spacing={3}>
@@ -22,7 +22,7 @@ const Search = ({location, setLocation, search, setSearch}) => {
           variant="outlined"
         />
 
-        <Button variant="outlined" color="primary" onClick={() => setSearch(true)} style={{ marginTop: "10%", marginLeft: "5px", padding:"13px"}} size="large">
+        <Button variant="outlined" color="primary" onClick={() => {setSearch(true); fetchdetails()}} style={{ marginTop: "10%", marginLeft: "5px", padding:"13px"}} size="large">
           Search
         </Button>
       </Grid>
