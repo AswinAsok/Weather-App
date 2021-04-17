@@ -19,7 +19,8 @@ function App() {
         .then((res) => res.json())
         .then((data) => {
           setWeather(data);
-          console.log("Data Fetched")
+          setError("false");
+          console.log("Data Fetched");
           if (data.message) {
             setError(data.message);
           }
@@ -39,7 +40,7 @@ function App() {
       />
       <br></br>
       <Divider />
-      <Display weather={weather} location={location}/>
+      <Display search={search} weather={weather} location={location} error={error}  />
     </div>
   );
 }

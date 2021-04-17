@@ -7,7 +7,7 @@ import "./Search.css";
 const Search = ({ location, setLocation, search, setSearch, fetchdetails }) => {
   return (
     <div className="Search-container">
-      <Grid spacing={3}>
+      <Grid>
         <TextField
           id="outlined-full-width"
           label="Search Weather"
@@ -29,8 +29,8 @@ const Search = ({ location, setLocation, search, setSearch, fetchdetails }) => {
           variant="outlined"
           color="primary"
           onClick={() => {
-            setSearch(true);
             fetchdetails();
+            setSearch(true);
           }}
           style={{ marginTop: "10%", marginLeft: "5px", padding: "13px" }}
           size="large"

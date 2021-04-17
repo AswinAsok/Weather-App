@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 
-const Display = ({weather, location}) => {
+const Display = ({search, weather, location, error}) => {
   
 
   return (
     <div>
-      {console.log(weather)}
-      {console.log(location)}
+       {(() => {
+        if (search && location.length > 0 && error=="false") {
+          return (
+            <div>
+              <p>{weather.coord.lon}</p>
+            </div>
+          )
+        }
+      })()}
     </div>
   );
 };
