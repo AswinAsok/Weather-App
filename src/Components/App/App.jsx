@@ -13,7 +13,7 @@ function App() {
 
   const fetchdetails = () => {
     fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=e872642d325a2c265cecf7fac7986a27&units=metric`
+      `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=e872642d325a2c265cecf7fac7986a27&units=metric`
     )
       .then((res) => res.json())
       .then((data) => {
