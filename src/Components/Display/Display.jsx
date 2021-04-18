@@ -15,10 +15,13 @@ import CardMedia from '@material-ui/core/CardMedia';
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
+    marginTop: "10%",
+    marginBottom: "15%",
   },
   media: {
     height: 0,
-    paddingTop: "56.25%", // 16:9
+    paddingTop: "56.25%",
+    backgroundColor: "#b3e5fc" // 16:9
   },
   expand: {
     transform: "rotate(0deg)",
@@ -33,6 +36,9 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     backgroundColor: red[500],
   },
+  expcontent: {
+    backgroundColor: "#81d3f9",
+  }
 }));
 
 const Display = ({ search, weather, location, error }) => {
@@ -64,7 +70,7 @@ const Display = ({ search, weather, location, error }) => {
                       title="Paella dish"
                     />
 
-                    <CardContent>
+                    <CardContent className={classes.expcontent}>
                       <Grid
                         container
                         direction="row"
@@ -75,7 +81,7 @@ const Display = ({ search, weather, location, error }) => {
                       </Grid>
                     </CardContent>
 
-                    <CardActions disableSpacing>
+                    <CardActions disableSpacing className={classes.expcontent}>
                       Temperature:&nbsp;<b>{weather.main.temp}</b>°C
                       <IconButton
                         className={clsx(classes.expand, {
@@ -90,7 +96,7 @@ const Display = ({ search, weather, location, error }) => {
                     </CardActions>
 
                     <Collapse in={expanded} timeout="auto" unmountOnExit>
-                      <CardContent>
+                      <CardContent className={classes.expcontent}>
                         <Grid
                           container
                           direction="row"
