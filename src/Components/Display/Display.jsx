@@ -113,7 +113,7 @@ const Display = ({ search, weather, location, error }) => {
                           </div>
                         </Grid>
                         <br></br>
-                        <Divider className={classes.dividercolorone}/>
+                        <Divider className={classes.dividercolorone} />
                         <br></br>
                         <Grid
                           container
@@ -130,7 +130,7 @@ const Display = ({ search, weather, location, error }) => {
                           </div>
                         </Grid>
                         <br></br>
-                        <Divider className={classes.dividercolorone}/>
+                        <Divider className={classes.dividercolorone} />
                         <br></br>
                         <Grid
                           container
@@ -143,7 +143,7 @@ const Display = ({ search, weather, location, error }) => {
                           </div>
                         </Grid>
                         <br></br>
-                        <Divider className={classes.dividercolorone}/>
+                        <Divider className={classes.dividercolorone} />
                         <br></br>
 
                         <Grid
@@ -166,9 +166,8 @@ const Display = ({ search, weather, location, error }) => {
               </Grid>
             </div>
           );
-        }
-        else if(error == "404"){
-          return(
+        } else if (error == "404") {
+          return (
             <div>
               <Grid
                 container
@@ -191,7 +190,62 @@ const Display = ({ search, weather, location, error }) => {
                         justify="center"
                         alignItems="center"
                       >
-                        Entered loaction's weather condition is not found on the server
+                        Entered loaction's weather condition is not found on the
+                        server
+                      </Grid>
+                    </CardContent>
+                  </Card>
+                </div>
+              </Grid>
+            </div>
+          );
+        } else {
+          return(
+            <div>
+              <Grid
+                container
+                direction="column"
+                justify="center"
+                alignItems="center"
+              >
+                <div>
+                  <Card className={classes.root}>
+                    <CardMedia
+                      className={classes.media}
+                      image={`https://avatars.githubusercontent.com/u/64626875?v=4`}
+                      title="Hi I'm Aswin Asok"
+                    />
+
+                    <CardContent className={classes.expcontent}>
+                      <Grid
+                        container
+                        direction="row"
+                        justify="center"
+                        alignItems="center"
+                      >
+                       This is my second React.js Application which can be used to fetch the weather of a location.
+                      </Grid>
+                      <br></br>
+                      <Divider className={classes.dividercolorone} />
+                      <br></br>
+                      <Grid
+                        container
+                        direction="row"
+                        justify="center"
+                        alignItems="center"
+                      >
+                       <a href="https://github.com/AswinAsok/Weather-App">Star 🌟 This Repository</a>
+                      </Grid>
+                      <br></br>
+                      <Divider className={classes.dividercolorone} />
+                      <br></br>
+                      <Grid
+                        container
+                        direction="row"
+                        justify="center"
+                        alignItems="center"
+                      >
+                       <a href="https://bio.fm/aswinasok">Find me around the Web 🌎</a>
                       </Grid>
                     </CardContent>
                   </Card>
