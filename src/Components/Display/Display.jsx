@@ -9,8 +9,8 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import { red } from "@material-ui/core/colors";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import Divider from '@material-ui/core/Divider';
-import Grid from '@material-ui/core/Grid';
+import Divider from "@material-ui/core/Divider";
+import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -51,16 +51,11 @@ const Display = ({ search, weather, location, error }) => {
             <div>
               <Card className={classes.root}>
                 <CardContent>
-                  <Typography variant="h5" color="textSecondary" component="p">
-                    <h2>{weather.weather[0].main}</h2>
-                  </Typography>
+                  <h2>{weather.weather[0].main}</h2>
                 </CardContent>
 
                 <CardActions disableSpacing>
-                  <Typography variant="h6" color="textSecondary" component="p">
-                    {Math.round(weather.main.temp)}°C
-                  </Typography>
-
+                  {Math.round(weather.main.temp)}°C
                   <IconButton
                     className={clsx(classes.expand, {
                       [classes.expandOpen]: expanded,
@@ -75,14 +70,6 @@ const Display = ({ search, weather, location, error }) => {
 
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
                   <CardContent>
-                    <Typography paragraph>
-                      Min Temperature &nbsp; &nbsp; &nbsp;Max Temperature<br/>
-                      <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{Math.round(weather.main.temp_min)}°C
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{Math.round(weather.main.temp_max)}°C</b>
-                    </Typography>
-                    <Divider />
-
-                    <Typography paragraph>
                     <Grid
                       container
                       direction="row"
@@ -90,39 +77,56 @@ const Display = ({ search, weather, location, error }) => {
                       alignItems="center"
                     >
                       <div>
-                      Humidity:<b>{weather.main.humidity}%</b>
-                      </div> 
-                      <div>
-                      Pressure:<b>{Math.round(weather.main.pressure)}mb</b>
+                        Feels like: <b>{weather.main.feels_like}</b>
                       </div>
                     </Grid>
-                    </Typography>
+                    <br></br>
+                    <Divider />
+                    <br></br>
+                    <Grid
+                      container
+                      direction="row"
+                      justify="space-around"
+                      alignItems="center"
+                    >
+                      <div>
+                        Humidity:<b>{weather.main.humidity}%</b>
+                      </div>
+                      <div>
+                        Pressure:<b>{Math.round(weather.main.pressure)}mb</b>
+                      </div>
+                    </Grid>
+                    <br></br>
+                    <Divider />
+                    <br></br>
+                    <Grid
+                      container
+                      direction="column"
+                      justify="space-around"
+                      alignItems="center"
+                    >
+                      <div>
+                        Visiblity: <b>{weather.visibility / 1000}km</b>
+                      </div>
+                    </Grid>
+                    <br></br>
+                    <Divider />
+                    <br></br>
                     
-                    <Typography paragraph>
-                      Heat oil in a (14- to 16-inch) paella pan or a large, deep
-                      skillet over medium-high heat. Add chicken, shrimp and
-                      chorizo, and cook, stirring occasionally until lightly
-                      browned, 6 to 8 minutes. Transfer shrimp to a large plate
-                      and set aside, leaving chicken and chorizo in the pan. Add
-                      pimentón, bay leaves, garlic, tomatoes, onion, salt and
-                      pepper, and cook, stirring often until thickened and
-                      fragrant, about 10 minutes. Add saffron broth and
-                      remaining 4 1/2 cups chicken broth; bring to a boil.
-                    </Typography>
-                    <Typography paragraph>
-                      Add rice and stir very gently to distribute. Top with
-                      artichokes and peppers, and cook without stirring, until
-                      most of the liquid is absorbed, 15 to 18 minutes. Reduce
-                      heat to medium-low, add reserved shrimp and mussels,
-                      tucking them down into the rice, and cook again without
-                      stirring, until mussels have opened and rice is just
-                      tender, 5 to 7 minutes more. (Discard any mussels that
-                      don’t open.)
-                    </Typography>
-                    <Typography>
-                      Set aside off of the heat to let rest for 10 minutes, and
-                      then serve.
-                    </Typography>
+                    <Grid
+                      container
+                      direction="row"
+                      justify="space-around"
+                      alignItems="center"
+                    >
+                      
+                      <div>
+                        Wind: <b>{weather.wind.speed}m/s</b>
+                      </div>
+                      <div>
+                        Wind Direction: <b>{weather.wind.deg}deg</b>
+                      </div>
+                    </Grid>
                   </CardContent>
                 </Collapse>
               </Card>
