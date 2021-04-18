@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
   expcontent: {
     backgroundColor: "#2D333B",
     color: "#ADBAC7",
+    textAlign: "center",
   },
   dividercolorone: {
     background: "#1E2228",
@@ -167,7 +168,37 @@ const Display = ({ search, weather, location, error }) => {
           );
         }
         else if(error == "404"){
-          console.log("Hey its 404")
+          return(
+            <div>
+              <Grid
+                container
+                direction="column"
+                justify="center"
+                alignItems="center"
+              >
+                <div>
+                  <Card className={classes.root}>
+                    <CardMedia
+                      className={classes.media}
+                      image={`https://i.stack.imgur.com/6M513.png`}
+                      title="404"
+                    />
+
+                    <CardContent className={classes.expcontent}>
+                      <Grid
+                        container
+                        direction="row"
+                        justify="center"
+                        alignItems="center"
+                      >
+                        Entered loaction's weather condition is not found on the server
+                      </Grid>
+                    </CardContent>
+                  </Card>
+                </div>
+              </Grid>
+            </div>
+          )
         }
       })()}
     </div>
