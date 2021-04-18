@@ -2,19 +2,15 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
-import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import Collapse from "@material-ui/core/Collapse";
-import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import { red } from "@material-ui/core/colors";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
+import Divider from '@material-ui/core/Divider';
+import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -54,27 +50,17 @@ const Display = ({ search, weather, location, error }) => {
           return (
             <div>
               <Card className={classes.root}>
-                <CardMedia
-                  className={classes.media}
-                  image="/static/images/cards/paella.jpg"
-                  title="Paella dish"
-                />
                 <CardContent>
-                  <Typography
-                    variant="body2"
-                    color="textSecondary"
-                    component="p"
-                  >
-                    {weather.weather[0].main}
+                  <Typography variant="h5" color="textSecondary" component="p">
+                    <h2>{weather.weather[0].main}</h2>
                   </Typography>
                 </CardContent>
+
                 <CardActions disableSpacing>
-                  <IconButton aria-label="add to favorites">
-                    <FavoriteIcon />
-                  </IconButton>
-                  <IconButton aria-label="share">
-                    <ShareIcon />
-                  </IconButton>
+                  <Typography variant="h6" color="textSecondary" component="p">
+                    {Math.round(weather.main.temp)}°C
+                  </Typography>
+
                   <IconButton
                     className={clsx(classes.expand, {
                       [classes.expandOpen]: expanded,
@@ -86,13 +72,32 @@ const Display = ({ search, weather, location, error }) => {
                     <ExpandMoreIcon />
                   </IconButton>
                 </CardActions>
+
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
                   <CardContent>
-                    <Typography paragraph>Method:</Typography>
                     <Typography paragraph>
-                      Heat 1/2 cup of the broth in a pot until simmering, add
-                      saffron and set aside for 10 minutes.
+                      Min Temperature &nbsp; &nbsp; &nbsp;Max Temperature<br/>
+                      <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{Math.round(weather.main.temp_min)}°C
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{Math.round(weather.main.temp_max)}°C</b>
                     </Typography>
+                    <Divider />
+
+                    <Typography paragraph>
+                    <Grid
+                      container
+                      direction="row"
+                      justify="space-around"
+                      alignItems="center"
+                    >
+                      <div>
+                      Humidity:<b>{weather.main.humidity}%</b>
+                      </div> 
+                      <div>
+                      Pressure:<b>{Math.round(weather.main.pressure)}mb</b>
+                      </div>
+                    </Grid>
+                    </Typography>
+                    
                     <Typography paragraph>
                       Heat oil in a (14- to 16-inch) paella pan or a large, deep
                       skillet over medium-high heat. Add chicken, shrimp and
