@@ -57,7 +57,7 @@ const Display = ({ search, weather, location, error }) => {
   return (
     <div className="DisplayContainer">
       {(() => {
-        if (search && location.length > 0 && error == "false") {
+        if (search && location.length > 0 && error == "200") {
           return (
             <div>
               <Grid
@@ -165,6 +165,9 @@ const Display = ({ search, weather, location, error }) => {
               </Grid>
             </div>
           );
+        }
+        else if(error == "404"){
+          console.log("Hey its 404")
         }
       })()}
     </div>

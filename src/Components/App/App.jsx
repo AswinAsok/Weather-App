@@ -27,10 +27,10 @@ function App() {
       .then((res) => res.json())
       .then((data) => {
         setWeather(data);
-        setError("false");
         console.log("Data Fetched");
-        if (data.message) {
-          setError(data.message);
+        if (data.cod) {
+          setError(data.cod);
+          console.log(error)
         }
       });
   };
