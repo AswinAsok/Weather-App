@@ -10,8 +10,8 @@ import CloudTwoToneIcon from "@material-ui/icons/CloudTwoTone";
 const useStyles = makeStyles((theme) => ({
   root: {
     boxShadow: "none",
-    backgroundColor: "#0496FF",
-    color: "#fffff",
+    backgroundColor: "#2D333B",
+    color: "#ADBAC7",
   },
   text: {
     marginLeft: "5px",
@@ -29,9 +29,7 @@ const Header = () => {
       <AppBar position="static" className={classes.root}>
         <Toolbar>
           <CloudTwoToneIcon className={classes.logo} />
-          <Typography className={classes.text} variant="h5">
-            Weather App
-          </Typography>
+          <div className={classes.text}>Weather App</div>
         </Toolbar>
       </AppBar>
     </div>

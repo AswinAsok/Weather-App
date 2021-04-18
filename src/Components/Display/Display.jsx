@@ -10,7 +10,8 @@ import { red } from "@material-ui/core/colors";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Divider from "@material-ui/core/Divider";
 import Grid from "@material-ui/core/Grid";
-import CardMedia from '@material-ui/core/CardMedia';
+import CardMedia from "@material-ui/core/CardMedia";
+import "./Display.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   media: {
     height: 0,
     paddingTop: "56.25%",
-    backgroundColor: "#b3e5fc" // 16:9
+    backgroundColor: "#1E2228", // 16:9
   },
   expand: {
     transform: "rotate(0deg)",
@@ -33,12 +34,13 @@ const useStyles = makeStyles((theme) => ({
   expandOpen: {
     transform: "rotate(180deg)",
   },
-  avatar: {
-    backgroundColor: red[500],
-  },
   expcontent: {
-    backgroundColor: "#81d3f9",
-  }
+    backgroundColor: "#2D333B",
+    color: "#ADBAC7",
+  },
+  dividercolorone: {
+    background: "#1E2228",
+  },
 }));
 
 const Display = ({ search, weather, location, error }) => {
@@ -46,12 +48,14 @@ const Display = ({ search, weather, location, error }) => {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
-    console.log(`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`)
+    console.log(
+      `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`
+    );
     setExpanded(!expanded);
   };
 
   return (
-    <div>
+    <div className="DisplayContainer">
       {(() => {
         if (search && location.length > 0 && error == "false") {
           return (
@@ -108,7 +112,7 @@ const Display = ({ search, weather, location, error }) => {
                           </div>
                         </Grid>
                         <br></br>
-                        <Divider />
+                        <Divider className={classes.dividercolorone}/>
                         <br></br>
                         <Grid
                           container
@@ -125,7 +129,7 @@ const Display = ({ search, weather, location, error }) => {
                           </div>
                         </Grid>
                         <br></br>
-                        <Divider />
+                        <Divider className={classes.dividercolorone}/>
                         <br></br>
                         <Grid
                           container
@@ -138,7 +142,7 @@ const Display = ({ search, weather, location, error }) => {
                           </div>
                         </Grid>
                         <br></br>
-                        <Divider />
+                        <Divider className={classes.dividercolorone}/>
                         <br></br>
 
                         <Grid

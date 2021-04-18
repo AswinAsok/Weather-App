@@ -4,12 +4,21 @@ import "./App.css";
 import Search from "../Search/Search";
 import React, { useState, useEffect } from "react";
 import Divider from "@material-ui/core/Divider";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  dividercolor: {
+    background: "#2D333B",
+},
+
+}));
 
 function App() {
   const [location, setLocation] = useState("");
   const [search, setSearch] = useState(false);
   const [weather, setWeather] = useState({});
   const [error, setError] = useState("");
+  const classes = useStyles();
 
   const fetchdetails = () => {
     fetch(
@@ -37,13 +46,14 @@ function App() {
         fetchdetails={fetchdetails}
       />
       <br></br>
-      <Divider />
+      <Divider className={classes.dividercolor} />
       <Display
         search={search}
         weather={weather}
         location={location}
         error={error}
       />
+
     </div>
   );
 }

@@ -3,8 +3,23 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import "./Search.css";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    background: "#2D333B",
+    borderColor: "#2D333B"
+  },
+  input: {
+    color: "white",
+  },
+  label: {
+    color: "#747F89"
+  }
+}));
 
 const Search = ({ location, setLocation, search, setSearch, fetchdetails }) => {
+  const classes = useStyles();
   return (
     <div className="Search-container">
       <Grid>
@@ -16,12 +31,16 @@ const Search = ({ location, setLocation, search, setSearch, fetchdetails }) => {
           margin="normal"
           InputLabelProps={{
             shrink: true,
+            className: classes.label,
+          }}
+          className={classes.root}
+          InputProps={{
+            className: classes.input,
           }}
           value={location}
           onChange={(event) => {
             setLocation(event.target.value);
-            if(search)
-              setSearch(false);
+            if (search) setSearch(false);
           }}
           variant="outlined"
         />
