@@ -40,7 +40,7 @@ const Display = ({ search, weather, location, error }) => {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
-    console.log(`public/icons/${weather.weather[0].icon}@2x.png`)
+    console.log(`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`)
     setExpanded(!expanded);
   };
 
@@ -60,7 +60,7 @@ const Display = ({ search, weather, location, error }) => {
                   <Card className={classes.root}>
                     <CardMedia
                       className={classes.media}
-                      image={`public/icons/${weather.weather[0].icon}@2x.png`}
+                      image={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
                       title="Paella dish"
                     />
 
