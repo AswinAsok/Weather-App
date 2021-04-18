@@ -20,7 +20,8 @@ const Search = ({ location, setLocation, search, setSearch, fetchdetails }) => {
           value={location}
           onChange={(event) => {
             setLocation(event.target.value);
-            setSearch(false);
+            if(search)
+              setSearch(false);
           }}
           variant="outlined"
         />
@@ -29,8 +30,8 @@ const Search = ({ location, setLocation, search, setSearch, fetchdetails }) => {
           variant="outlined"
           color="primary"
           onClick={() => {
-            fetchdetails();
             setSearch(true);
+            fetchdetails();
           }}
           style={{ marginTop: "10%", marginLeft: "5px", padding: "13px" }}
           size="large"

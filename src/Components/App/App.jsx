@@ -12,20 +12,18 @@ function App() {
   const [error, setError] = useState("");
 
   const fetchdetails = () => {
-    if (search) {
-      fetch(
-        `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=e872642d325a2c265cecf7fac7986a27&units=metric`
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          setWeather(data);
-          setError("false");
-          console.log("Data Fetched");
-          if (data.message) {
-            setError(data.message);
-          }
-        });
-    }
+    fetch(
+      `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=e872642d325a2c265cecf7fac7986a27&units=metric`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setWeather(data);
+        setError("false");
+        console.log("Data Fetched");
+        if (data.message) {
+          setError(data.message);
+        }
+      });
   };
 
   return (
@@ -40,7 +38,12 @@ function App() {
       />
       <br></br>
       <Divider />
-      <Display search={search} weather={weather} location={location} error={error}  />
+      <Display
+        search={search}
+        weather={weather}
+        location={location}
+        error={error}
+      />
     </div>
   );
 }
