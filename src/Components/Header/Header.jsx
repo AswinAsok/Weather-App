@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
   text: {
     marginLeft: "5px",
-    fontSize: "20px"
+    fontSize: "23px"
   },
   logo: {
     margin: "0px",

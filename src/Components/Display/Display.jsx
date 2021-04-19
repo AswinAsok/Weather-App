@@ -18,7 +18,8 @@ const useStyles = makeStyles((theme) => ({
   media: {
     height: 0,
     paddingTop: "56.25%",
-    backgroundColor: "#1E2228", // 16:9
+    backgroundColor: "#FFFFFF", // 16:9
+    borderColor: "#3F51B5"
   },
   expand: {
     transform: "rotate(0deg)",
@@ -46,11 +47,6 @@ const Display = ({ search, weather, location, error }) => {
   return (
     <div className="DisplayContainer">
       {(() => {
-        console.log(`-----------------------------------------------`)
-        console.log(`This is the location length: ${location.length}`)
-        console.log(`This is the Search: ${search}`)
-        console.log(`This is the Error Code: ${error}`)
-        console.log(`This is the data: ${weather.weather}`)
         if (search && location.length > 0 && error == "200" && weather.weather != "undefined") {
           return (
             <div>
@@ -75,10 +71,13 @@ const Display = ({ search, weather, location, error }) => {
                         justify="center"
                         alignItems="center"
                       >
-                        <h1>{weather.weather[0].main}</h1>
+                        <h1>{weather.weather[0].main}: {weather.weather[0].description}</h1>
+                        <h1></h1>
                       </Grid>
+                      <br></br>
+                      <Divider className={classes.dividercolorone} />
                     </CardContent>
-
+                    
                     <CardActions disableSpacing className={classes.expcontent}>
                       Temperature:&nbsp;<b>{weather.main.temp}</b>°C
                     </CardActions>
