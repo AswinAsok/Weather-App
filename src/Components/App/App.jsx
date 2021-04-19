@@ -5,6 +5,7 @@ import Search from "../Search/Search";
 import React, { useState, useEffect } from "react";
 import Divider from "@material-ui/core/Divider";
 import { makeStyles } from "@material-ui/core/styles";
+import Footer from "../Footer/Footer";
 
 const useStyles = makeStyles((theme) => ({
   dividercolor: {
@@ -53,6 +54,7 @@ function App() {
         location={location}
         error={error}
       />
+      <Footer />
 
     </div>
   );

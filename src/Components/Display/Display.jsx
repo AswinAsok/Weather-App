@@ -18,6 +18,9 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 345,
     marginTop: "10%",
     marginBottom: "15%",
+    borderRadius: "16px",
+    
+    
   },
   media: {
     height: 0,
@@ -190,7 +193,7 @@ const Display = ({ search, weather, location, error }) => {
                         justify="center"
                         alignItems="center"
                       >
-                        Entered loaction's weather condition is not found on the
+                        Entered location's weather condition is not found on the
                         server
                       </Grid>
                     </CardContent>

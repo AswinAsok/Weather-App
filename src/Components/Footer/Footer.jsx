@@ -1,21 +1,20 @@
 import React from "react";
-import Grid from "@material-ui/core/Grid";
-import "./Header.css";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
+import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
-import CloudTwoToneIcon from "@material-ui/icons/CloudTwoTone";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     boxShadow: "none",
     backgroundColor: "#2D333B",
     color: "#ADBAC7",
+    textAlign: "center",
   },
   text: {
     marginLeft: "5px",
-    fontSize: "20px"
+    textAlign: "center",
   },
   logo: {
     margin: "0px",
@@ -23,10 +22,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Header = () => {
+const Footer = () => {
   const classes = useStyles();
   return (
-    <div className="header-container">
+    <div className="footer-container">
       <AppBar position="static" className={classes.root}>
         <Toolbar>
           <Grid
@@ -35,8 +34,8 @@ const Header = () => {
             justify="center"
             alignItems="center"
           >
-            <CloudTwoToneIcon className={classes.logo} />
-            <div className={classes.text}>Weather App</div>
+            <div className={classes.text}>Made with Passion 💙 By Aswin Asok</div>
+            <div className={classes.text}><a href="https://github.com/AswinAsok/Weather-App">Star 🌟 This Repository</a></div>
           </Grid>
         </Toolbar>
       </AppBar>
@@ -44,4 +43,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Footer;
