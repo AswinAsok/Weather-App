@@ -19,8 +19,6 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "10%",
     marginBottom: "15%",
     borderRadius: "16px",
-    
-    
   },
   media: {
     height: 0,
@@ -49,14 +47,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Display = ({ search, weather, location, error }) => {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
-
-  const handleExpandClick = () => {
-    console.log(
-      `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`
-    );
-    setExpanded(!expanded);
-  };
 
   return (
     <div className="DisplayContainer">
@@ -91,79 +81,66 @@ const Display = ({ search, weather, location, error }) => {
 
                     <CardActions disableSpacing className={classes.expcontent}>
                       Temperature:&nbsp;<b>{weather.main.temp}</b>°C
-                      <IconButton
-                        className={clsx(classes.expand, {
-                          [classes.expandOpen]: expanded,
-                        })}
-                        onClick={handleExpandClick}
-                        aria-expanded={expanded}
-                        aria-label="show more"
-                      >
-                        <ExpandMoreIcon />
-                      </IconButton>
                     </CardActions>
 
-                    <Collapse in={expanded} timeout="auto" unmountOnExit>
-                      <CardContent className={classes.expcontent}>
-                        <Grid
-                          container
-                          direction="row"
-                          justify="space-around"
-                          alignItems="center"
-                        >
-                          <div>
-                            Feels like: <b>{weather.main.feels_like}°C</b>
-                          </div>
-                        </Grid>
-                        <br></br>
-                        <Divider className={classes.dividercolorone} />
-                        <br></br>
-                        <Grid
-                          container
-                          direction="row"
-                          justify="space-around"
-                          alignItems="center"
-                        >
-                          <div>
-                            Humidity: <b>{weather.main.humidity}%</b>
-                          </div>
-                          <div>
-                            Pressure:{" "}
-                            <b>{Math.round(weather.main.pressure)}mb</b>
-                          </div>
-                        </Grid>
-                        <br></br>
-                        <Divider className={classes.dividercolorone} />
-                        <br></br>
-                        <Grid
-                          container
-                          direction="column"
-                          justify="space-around"
-                          alignItems="center"
-                        >
-                          <div>
-                            Visiblity: <b>{weather.visibility / 1000}km</b>
-                          </div>
-                        </Grid>
-                        <br></br>
-                        <Divider className={classes.dividercolorone} />
-                        <br></br>
+                    <CardContent className={classes.expcontent}>
+                      <Grid
+                        container
+                        direction="row"
+                        justify="space-around"
+                        alignItems="center"
+                      >
+                        <div>
+                          Feels like: <b>{weather.main.feels_like}°C</b>
+                        </div>
+                      </Grid>
+                      <br></br>
+                      <Divider className={classes.dividercolorone} />
+                      <br></br>
+                      <Grid
+                        container
+                        direction="row"
+                        justify="space-around"
+                        alignItems="center"
+                      >
+                        <div>
+                          Humidity: <b>{weather.main.humidity}%</b>
+                        </div>
+                        <div>
+                          Pressure: <b>{Math.round(weather.main.pressure)}mb</b>
+                        </div>
+                      </Grid>
+                      <br></br>
+                      <Divider className={classes.dividercolorone} />
+                      <br></br>
+                      <Grid
+                        container
+                        direction="column"
+                        justify="space-around"
+                        alignItems="center"
+                      >
+                        <div>
+                          Visiblity: <b>{weather.visibility / 1000}km</b>
+                        </div>
+                      </Grid>
+                      <br></br>
+                      <Divider className={classes.dividercolorone} />
+                      <br></br>
 
-                        <Grid
-                          container
-                          direction="row"
-                          justify="space-around"
-                          alignItems="center"
-                        >
-                          <div>
-                            Wind: <b>{weather.wind.speed}m/s</b>
-                          </div>
-                          <div>
-                            Wind Direction: <b>{weather.wind.deg}deg</b>
-                          </div>
-                        </Grid>
-                      </CardContent>
-                    </Collapse>
+                      <Grid
+                        container
+                        direction="row"
+                        justify="space-around"
+                        alignItems="center"
+                      >
+                        <div>
+                          Wind: <b>{weather.wind.speed}m/s</b>
+                        </div>
+                        <div>
+                          Wind Direction: <b>{weather.wind.deg}deg</b>
+                        </div>
+                      </Grid>
+                    </CardContent>
                   </Card>
                 </div>
               </Grid>
@@ -203,7 +180,7 @@ const Display = ({ search, weather, location, error }) => {
             </div>
           );
         } else {
-          return(
+          return (
             <div>
               <Grid
                 container
@@ -226,7 +203,8 @@ const Display = ({ search, weather, location, error }) => {
                         justify="center"
                         alignItems="center"
                       >
-                       This is my second React.js Application which can be used to fetch the weather of a location.
+                        This is my second React.js Application which can be used
+                        to fetch the weather of a location.
                       </Grid>
                       <br></br>
                       <Divider className={classes.dividercolorone} />
@@ -237,7 +215,9 @@ const Display = ({ search, weather, location, error }) => {
                         justify="center"
                         alignItems="center"
                       >
-                       <a href="https://github.com/AswinAsok/Weather-App">Star 🌟 This Repository</a>
+                        <a href="https://github.com/AswinAsok/Weather-App">
+                          Star 🌟 This Repository
+                        </a>
                       </Grid>
                       <br></br>
                       <Divider className={classes.dividercolorone} />
@@ -248,14 +228,16 @@ const Display = ({ search, weather, location, error }) => {
                         justify="center"
                         alignItems="center"
                       >
-                       <a href="https://bio.fm/aswinasok">Find me around the Web 🌎</a>
+                        <a href="https://bio.fm/aswinasok">
+                          Find me around the Web 🌎
+                        </a>
                       </Grid>
                     </CardContent>
                   </Card>
                 </div>
               </Grid>
             </div>
-          )
+          );
         }
       })()}
     </div>

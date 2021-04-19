@@ -36,7 +36,7 @@ const Header = () => {
             alignItems="center"
           >
             <CloudTwoToneIcon className={classes.logo} />
-            <div className={classes.text}>Weather App</div>
+            <div className={classes.text}>Find Weather</div>
           </Grid>
         </Toolbar>
       </AppBar>
