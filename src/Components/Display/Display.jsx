@@ -1,13 +1,8 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import clsx from "clsx";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
-import Collapse from "@material-ui/core/Collapse";
-import IconButton from "@material-ui/core/IconButton";
-import { red } from "@material-ui/core/colors";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Divider from "@material-ui/core/Divider";
 import Grid from "@material-ui/core/Grid";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -170,8 +165,23 @@ const Display = ({ search, weather, location, error }) => {
                         justify="center"
                         alignItems="center"
                       >
-                        Entered location's weather condition is not found on the
-                        server
+                        <div>
+                          Entered location's weather condition is not found on
+                          the server.
+                        </div>
+                      </Grid>
+                      <br></br>
+                      <Divider className={classes.dividercolorone} />
+                      <br></br>
+                      <Grid
+                        container
+                        direction="row"
+                        justify="center"
+                        alignItems="center"
+                      >
+                        <div>
+                          Please try again with some other nearby locations!
+                        </div>
                       </Grid>
                     </CardContent>
                   </Card>
