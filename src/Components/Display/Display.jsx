@@ -46,7 +46,12 @@ const Display = ({ search, weather, location, error }) => {
   return (
     <div className="DisplayContainer">
       {(() => {
-        if (search && location.length > 0 && error == "200") {
+        console.log(`-----------------------------------------------`)
+        console.log(`This is the location length: ${location.length}`)
+        console.log(`This is the Search: ${search}`)
+        console.log(`This is the Error Code: ${error}`)
+        console.log(`This is the data: ${weather.weather}`)
+        if (search && location.length > 0 && error == "200" && weather.weather != "undefined") {
           return (
             <div>
               <Grid
@@ -141,7 +146,7 @@ const Display = ({ search, weather, location, error }) => {
               </Grid>
             </div>
           );
-        } else if (error == "404") {
+        } else if (error === "404") {
           return (
             <div>
               <Grid

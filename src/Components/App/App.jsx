@@ -45,6 +45,8 @@ function App() {
         search={search}
         setSearch={setSearch}
         fetchdetails={fetchdetails}
+        error={error}
+        setError={setError}
       />
       <br></br>
       <Divider className={classes.dividercolor} />

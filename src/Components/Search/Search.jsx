@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const Search = ({ location, setLocation, search, setSearch, fetchdetails }) => {
+const Search = ({ location, setLocation, search, setSearch, fetchdetails,error, setError }) => {
   const classes = useStyles();
   return (
     <div className="Search-container">
@@ -40,7 +40,10 @@ const Search = ({ location, setLocation, search, setSearch, fetchdetails }) => {
           value={location}
           onChange={(event) => {
             setLocation(event.target.value);
-            if (search) setSearch(false);
+            if (search) {
+              setSearch(false); 
+              setError("");
+            }
           }}
           variant="outlined"
         />
