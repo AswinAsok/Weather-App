@@ -51,8 +51,8 @@ const Display = ({ search, weather, location, error }) => {
         if (
           search &&
           location.length > 0 &&
-          error === "200" &&
-          weather.weather !== "undefined"
+          error == "200" &&
+          weather.weather !=="undefined"
         ) {
           return (
             <div>
