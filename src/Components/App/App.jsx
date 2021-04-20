@@ -2,7 +2,7 @@ import Header from "../Header/Header";
 import Display from "../Display/Display";
 import "./App.css";
 import Search from "../Search/Search";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Divider from "@material-ui/core/Divider";
 import { makeStyles } from "@material-ui/core/styles";
 import Footer from "../Footer/Footer";
@@ -28,7 +28,6 @@ function App() {
       .then((res) => res.json())
       .then((data) => {
         setWeather(data);
-        console.log("Data Fetched");
         if (data.cod) {
           setError(data.cod);
           console.log(error)

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
@@ -32,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
     transform: "rotate(180deg)",
   },
   expcontent: {
+    maxWidth: 345,
     backgroundColor: "#2D333B",
     color: "#ADBAC7",
     textAlign: "center",
@@ -50,8 +51,8 @@ const Display = ({ search, weather, location, error }) => {
         if (
           search &&
           location.length > 0 &&
-          error == "200" &&
-          weather.weather != "undefined"
+          error === "200" &&
+          weather.weather !== "undefined"
         ) {
           return (
             <div>
@@ -76,19 +77,43 @@ const Display = ({ search, weather, location, error }) => {
                         justify="center"
                         alignItems="center"
                       >
-                        <div>Location: {weather.name}</div>
-                        <br></br>
+                        <div>Location: {weather.name}</div><br></br>
+                        <div>Longitude: {weather.coord.lon}</div>
+                        <div>Latitude: {weather.coord.lat}</div>
+                      </Grid>
+                      <br></br>
+                      <Divider className={classes.dividercolorone} />
+                      <br></br>
+                      <Grid
+                        container
+                        direction="column"
+                        justify="center"
+                        alignItems="center"
+                      >
                         <div>
                           {weather.weather[0].main}:{" "}
                           {weather.weather[0].description}
                         </div>
+                        <div>
+                          Cloudliness: {weather.clouds.all}%
+                        </div>
                       </Grid>
                       <br></br>
+
                       <Divider className={classes.dividercolorone} />
                     </CardContent>
 
-                    <CardActions disableSpacing className={classes.expcontent}>
-                      Temperature:&nbsp;<b>{weather.main.temp}</b>°C
+                    <CardActions className={classes.expcontent}>
+                      <Grid
+                        container
+                        direction="row"
+                        justify="space-around"
+                        alignItems="center"
+                      >
+                        <div>
+                          Temperature:&nbsp;<b>{weather.main.temp}</b>°C
+                        </div>
+                      </Grid>
                     </CardActions>
 
                     <CardContent className={classes.expcontent}>
@@ -134,7 +159,9 @@ const Display = ({ search, weather, location, error }) => {
                       <br></br>
                       <Divider className={classes.dividercolorone} />
                       <br></br>
-                      <div>Wind</div>
+                      <div>
+                        <u>Wind</u>
+                      </div>
                       <br></br>
                       <Grid
                         container
@@ -228,8 +255,7 @@ const Display = ({ search, weather, location, error }) => {
                         justify="center"
                         alignItems="center"
                       >
-                        This is my second React.js Application which can be used
-                        to fetch the weather of a location.
+                        This is a React.js App that can be used to find the weather of your nearby location and it uses the OpenWeatherMap for fetching the details.
                         <br></br>
                       </Grid>
                       <br></br>
