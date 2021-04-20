@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     height: 0,
     paddingTop: "56.25%",
     backgroundColor: "#FFFFFF", // 16:9
-    borderColor: "#3F51B5"
+    borderColor: "#3F51B5",
   },
   expand: {
     transform: "rotate(0deg)",
@@ -47,7 +47,12 @@ const Display = ({ search, weather, location, error }) => {
   return (
     <div className="DisplayContainer">
       {(() => {
-        if (search && location.length > 0 && error == "200" && weather.weather != "undefined") {
+        if (
+          search &&
+          location.length > 0 &&
+          error == "200" &&
+          weather.weather != "undefined"
+        ) {
           return (
             <div>
               <Grid
@@ -67,17 +72,21 @@ const Display = ({ search, weather, location, error }) => {
                     <CardContent className={classes.expcontent}>
                       <Grid
                         container
-                        direction="row"
+                        direction="column"
                         justify="center"
                         alignItems="center"
                       >
-                        <h1>{weather.weather[0].main}: {weather.weather[0].description}</h1>
-                        <h1></h1>
+                        <div>Location: {weather.name}</div>
+                        <br></br>
+                        <div>
+                          {weather.weather[0].main}:{" "}
+                          {weather.weather[0].description}
+                        </div>
                       </Grid>
                       <br></br>
                       <Divider className={classes.dividercolorone} />
                     </CardContent>
-                    
+
                     <CardActions disableSpacing className={classes.expcontent}>
                       Temperature:&nbsp;<b>{weather.main.temp}</b>°C
                     </CardActions>
@@ -99,7 +108,7 @@ const Display = ({ search, weather, location, error }) => {
                       <Grid
                         container
                         direction="row"
-                        justify="space-around"
+                        justify="space-between"
                         alignItems="center"
                       >
                         <div>
@@ -125,18 +134,20 @@ const Display = ({ search, weather, location, error }) => {
                       <br></br>
                       <Divider className={classes.dividercolorone} />
                       <br></br>
-
+                      <div>Wind</div>
+                      <br></br>
                       <Grid
                         container
                         direction="row"
-                        justify="space-around"
+                        justify="space-between"
                         alignItems="center"
                       >
                         <div>
-                          Wind: <b>{weather.wind.speed}m/s</b>
+                          Speed: <b>{weather.wind.speed}m/s</b>
                         </div>
+
                         <div>
-                          Wind Direction: <b>{weather.wind.deg}deg</b>
+                          Direction: <b>{weather.wind.deg}deg</b>
                         </div>
                       </Grid>
                     </CardContent>
@@ -219,6 +230,7 @@ const Display = ({ search, weather, location, error }) => {
                       >
                         This is my second React.js Application which can be used
                         to fetch the weather of a location.
+                        <br></br>
                       </Grid>
                       <br></br>
                       <Divider className={classes.dividercolorone} />
