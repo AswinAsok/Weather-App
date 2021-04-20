@@ -8,58 +8,66 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   root: {
     background: "#2D333B",
-    borderColor: "#2D333B"
+    borderColor: "#2D333B",
   },
   input: {
     color: "white",
   },
   label: {
-    color: "#747F89"
-  }
+    color: "#747F89",
+  },
 }));
 
-const Search = ({ location, setLocation, search, setSearch, fetchdetails,error, setError }) => {
+const Search = ({
+  location,
+  setLocation,
+  search,
+  setSearch,
+  fetchdetails,
+  error,
+  setError,
+}) => {
   const classes = useStyles();
   return (
     <div className="Search-container">
-      <Grid>
-        <TextField
-          id="outlined-full-width"
-          label="Search Weather"
-          style={{ marginTop: "10%", width: "70%" }}
-          placeholder="Location"
-          margin="normal"
-          InputLabelProps={{
-            shrink: true,
-            className: classes.label,
-          }}
-          className={classes.root}
-          InputProps={{
-            className: classes.input,
-          }}
-          value={location}
-          onChange={(event) => {
-            setLocation(event.target.value);
-            if (search) {
-              setSearch(false); 
-              setError("");
-            }
-          }}
-          variant="outlined"
-        />
+      <Grid container direction="row" justify="center" alignItems="center">
+          <TextField
+            id="outlined-full-width"
+            label="Search Weather"
+            style={{ width: "70%" }}
+            placeholder="Location"
+            margin="normal"
+            InputLabelProps={{
+              shrink: true,
+              className: classes.label,
+            }}
+            className={classes.root}
+            InputProps={{
+              className: classes.input,
+            }}
+            value={location}
+            onChange={(event) => {
+              setLocation(event.target.value);
+              if (search) {
+                setSearch(false);
+                setError("");
+              }
+            }}
+            variant="outlined"
+          />
 
-        <Button
-          variant="outlined"
-          color="primary"
-          onClick={() => {
-            setSearch(true);
-            fetchdetails();
-          }}
-          style={{ marginTop: "10%", marginLeft: "5px", padding: "13px" }}
-          size="large"
-        >
-          Search
-        </Button>
+          <Button
+            variant="outlined"
+            color="primary"
+            onClick={() => {
+              setSearch(true);
+              fetchdetails();
+            }}
+            style={{marginTop:"10px", marginLeft: "5px", padding: "14px" }}
+            size="large"
+          >
+            Search
+          </Button>
       </Grid>
     </div>
   );
